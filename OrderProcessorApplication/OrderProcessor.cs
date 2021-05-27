@@ -4,10 +4,13 @@ namespace OrderProcessorApplication
 {
     public class OrderProcessor
     {
-        public void Process(Order order)
-
+        public OrderProcessor()
         {
-            
+        }
+
+        public void Process(Order order)
+        {
+
         }
     }
 }
