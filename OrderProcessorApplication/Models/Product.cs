@@ -17,8 +17,8 @@ namespace OrderProcessorApplication.Models
             Name = name;
         }
 
-        public string Name { get; set; }
-        public bool IsPhysical { get; set; }
+        public string Name { get; }
+        public bool IsPhysical { get; protected set; }
     }
 
 }
