@@ -41,5 +41,35 @@ namespace OrderProcessApplication.Test
             // Assert
             mock.Verify(m => m.GenerateDuplicatePackingSlip(), Times.Never);
         }
+        [Fact]
+        public void Should_Call_Next_Handler_When_Book()
+        {
+            // Arrange
+            var order = Order.Create(new Book(""));
+            var sut = new BookHandler(new Mock<IPackingService>().Object);
+            var mockHandler = new Mock<IHandler<Order>>();
+            sut.SetNext(mockHandler.Object);
+
+            // Act
+            sut.Process(order);
+
+            // Assert
+            mockHandler.Verify(m => m.Process(order), Times.Once);
+        }
+        [Fact]
+        public void Should_Call_Next_Handler_When_Not_Book()
+        {
+            // Arrange
+            var order = Order.Create(new PhysicalProduct());
+            var sut = new BookHandler(new Mock<IPackingService>().Object);
+            var mockHandler = new Mock<IHandler<Order>>();
+            sut.SetNext(mockHandler.Object);
+
+            // Act
+            sut.Process(order);
+
+            // Assert
+            mockHandler.Verify(m => m.Process(order), Times.Once);
+        }
     }
 }
