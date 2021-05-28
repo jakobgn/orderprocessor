@@ -1,6 +1,7 @@
 using System;
 using OrderProcessorApplication;
 using OrderProcessorApplication.Models;
+using OrderProcessorApplication.Processing;
 using Xunit;
 
 namespace OrderProcessApplication.Test

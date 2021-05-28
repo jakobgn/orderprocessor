@@ -1,7 +1,7 @@
 ﻿using OrderProcessorApplication.Handlers;
 using OrderProcessorApplication.Models;
 
-namespace OrderProcessorApplication
+namespace OrderProcessorApplication.Processing
 {
     public class OrderProcessor
     {

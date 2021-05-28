@@ -2,7 +2,7 @@
 using OrderProcessorApplication.Models;
 using OrderProcessorApplication.Services;
 
-namespace OrderProcessorApplication
+namespace OrderProcessorApplication.Processing
 {
     public class OrderProcessorFactory
     {
