@@ -1,4 +1,5 @@
 ﻿using System;
+using OrderProcessorApplication.Models;
 
 namespace OrderProcessorApplication
 {
@@ -6,7 +7,9 @@ namespace OrderProcessorApplication
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var processor = new OrderProcessor();
+            var order = Order.Create(new Book("Harry Potter"));
+            processor.Process(order);
         }
     }
 }
