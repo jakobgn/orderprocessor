@@ -21,11 +21,15 @@ namespace OrderProcessorApplication
             var membershipActivationHandler = new MembershipActivationHandler(_membershipService);
             var membershipUpgradeHandler = new MembershipUpgradeHandler(_membershipService);
             var emailHandler = new EmailHandler(_membershipService);
+            var firstAidHandler = new FirstAidHandler(_packingService);
+            var commissionHandler = new CommissionHandler();
 
             physicalProductHandler.SetNext(bookHandler);
             bookHandler.SetNext(membershipActivationHandler);
             membershipActivationHandler.SetNext(membershipUpgradeHandler);
             membershipUpgradeHandler.SetNext(emailHandler);
+            emailHandler.SetNext(firstAidHandler);
+            firstAidHandler.SetNext(commissionHandler);
 
             return physicalProductHandler;
         }
