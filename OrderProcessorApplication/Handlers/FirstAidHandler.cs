@@ -3,6 +3,7 @@ using OrderProcessorApplication.Services;
 
 namespace OrderProcessorApplication.Handlers
 {
+    //TODO: add tests
     public class FirstAidHandler : HandlerBase<Order>
     {
         private readonly IPackingService _packingService;

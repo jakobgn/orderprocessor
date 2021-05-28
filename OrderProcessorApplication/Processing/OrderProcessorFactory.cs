@@ -4,6 +4,7 @@ using OrderProcessorApplication.Services;
 
 namespace OrderProcessorApplication.Processing
 {
+    //TODO: Add tests - requires DI of handlers or other way to track order of handlers
     public class OrderProcessorFactory
     {
         private readonly PackingService _packingService;

@@ -4,6 +4,7 @@ using OrderProcessorApplication.Services;
 
 namespace OrderProcessorApplication.Handlers
 {
+    //TODO: Call a real payment service and add tests
     public class CommissionHandler : HandlerBase<Order>
     {
         public override void Process(Order order)

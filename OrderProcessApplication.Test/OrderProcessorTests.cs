@@ -6,6 +6,7 @@ using Xunit;
 
 namespace OrderProcessApplication.Test
 {
+    //TODO: Currently only tests if the processor can run. To test expected output, a solution could be to add DI and mock the underlying factory and their handlers.
     public class OrderProcessorTests
     {
         [Fact]
