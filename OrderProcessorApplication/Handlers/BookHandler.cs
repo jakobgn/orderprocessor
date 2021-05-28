@@ -1,5 +1,5 @@
-﻿using System;
-using OrderProcessorApplication.Models;
+﻿using OrderProcessorApplication.Models;
+using OrderProcessorApplication.Services;
 
 namespace OrderProcessorApplication.Handlers
 {
@@ -20,18 +20,5 @@ namespace OrderProcessorApplication.Handlers
             base.Process(order);
         }
  
-    }
-
-    public interface IPackingService
-    {
-        void GenerateDuplicatePackingSlip();
-    }
-
-    public class PackingService : IPackingService
-    {
-        public void GenerateDuplicatePackingSlip()
-        {
-            Console.WriteLine("GenerateDuplicatePackingSlip");
-        }
     }
 }

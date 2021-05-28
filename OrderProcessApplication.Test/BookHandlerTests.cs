@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Moq;
 using OrderProcessorApplication.Handlers;
 using OrderProcessorApplication.Models;
+using OrderProcessorApplication.Services;
 using Xunit;
 
 namespace OrderProcessApplication.Test
