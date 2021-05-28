@@ -27,20 +27,6 @@ namespace OrderProcessApplication.Test
             // Assert
             mock.Verify(m => m.Activate(), Times.Once);
         }
-        [Fact]
-        public void Should_Send_Email_When_MembershipActivation()
-        {
-            // Arrange
-            var mock = new Mock<IMembershipService>();
-            var order = Order.Create(new MembershipActivation());
-            var sut = new MembershipActivationHandler(mock.Object);
-
-            // Act
-            sut.Process(order);
-
-            // Assert
-            mock.Verify(m => m.SendEmail(order.Email), Times.Once);
-        }
 
         [Fact]
         public void Should_Not_Activate_When_Not_MembershipActivation()

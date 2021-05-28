@@ -7,7 +7,7 @@ namespace OrderProcessorApplication
     public class OrderProcessorFactory
     {
         private readonly PackingService _packingService;
-        private MembershipService _membershipService;
+        private readonly MembershipService _membershipService;
 
         public OrderProcessorFactory()
         {
@@ -20,9 +20,13 @@ namespace OrderProcessorApplication
             var bookHandler = new BookHandler(_packingService);
             var membershipActivationHandler = new MembershipActivationHandler(_membershipService);
             var membershipUpgradeHandler = new MembershipUpgradeHandler(_membershipService);
+            var emailHandler = new EmailHandler(_membershipService);
+
             physicalProductHandler.SetNext(bookHandler);
             bookHandler.SetNext(membershipActivationHandler);
-            membershipUpgradeHandler.SetNext(membershipUpgradeHandler);
+            membershipActivationHandler.SetNext(membershipUpgradeHandler);
+            membershipUpgradeHandler.SetNext(emailHandler);
+
             return physicalProductHandler;
         }
     }

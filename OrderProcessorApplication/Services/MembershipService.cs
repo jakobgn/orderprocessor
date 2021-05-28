@@ -14,6 +14,7 @@ namespace OrderProcessorApplication.Services
             Console.WriteLine("Upgrade membership");
         }
 
+        //TODO should be in an email service and include topic
         public void SendEmail(string email)
         {
             if (string.IsNullOrEmpty(email))

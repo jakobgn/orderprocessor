@@ -3,19 +3,19 @@ using OrderProcessorApplication.Services;
 
 namespace OrderProcessorApplication.Handlers
 {
-    public class MembershipUpgradeHandler : HandlerBase<Order>
+    public class EmailHandler : HandlerBase<Order>
     {
         private readonly IMembershipService _membershipService;
 
-        public MembershipUpgradeHandler(IMembershipService membershipService)
+        public EmailHandler(IMembershipService membershipService)
         {
             _membershipService = membershipService;
         }
         public override void Process(Order order)
         {
-            if (order.Product is MembershipUpgrade)
+            if (order.Product is MembershipActivation || order.Product is MembershipUpgrade)
             {
-                _membershipService.Upgrade();
+                _membershipService.SendEmail(order.Email);
             }
             base.Process(order);
         }

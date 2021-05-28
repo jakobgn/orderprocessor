@@ -4,5 +4,7 @@
     {
         void GenerateDuplicatePackingSlip();
         void GeneratePackingSlip();
+
+        void GenerateFirstAidSlip();
     }
 }

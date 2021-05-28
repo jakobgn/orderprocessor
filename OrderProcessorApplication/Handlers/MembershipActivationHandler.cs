@@ -16,7 +16,6 @@ namespace OrderProcessorApplication.Handlers
             if (order.Product is MembershipActivation)
             {
                 _membershipService.Activate();
-                _membershipService.SendEmail(order.Email);
             }
             base.Process(order);
         }

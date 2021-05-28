@@ -29,21 +29,6 @@ namespace OrderProcessApplication.Test
         }
 
         [Fact]
-        public void Should_Send_Email_When_MembershipUpgrade()
-        {
-            // Arrange
-            var mock = new Mock<IMembershipService>();
-            var order = Order.Create(new MembershipUpgrade());
-            var sut = new MembershipUpgradeHandler(mock.Object);
-
-            // Act
-            sut.Process(order);
-
-            // Assert
-            mock.Verify(m => m.SendEmail(order.Email), Times.Once);
-        }
-
-        [Fact]
         public void Should_Not_Activate_When_Not_MembershipUpgrade()
         {
             // Arrange
@@ -56,21 +41,6 @@ namespace OrderProcessApplication.Test
 
             // Assert
             mock.Verify(m => m.Upgrade(), Times.Never);
-        }
-
-        [Fact]
-        public void Should_Not_Send_Email_When_Not_MembershipUpgrade()
-        {
-            // Arrange
-            var mock = new Mock<IMembershipService>();
-            var order = Order.Create(new PhysicalProduct());
-            var sut = new MembershipUpgradeHandler(mock.Object);
-
-            // Act
-            sut.Process(order);
-
-            // Assert
-            mock.Verify(m => m.SendEmail(order.Email), Times.Never);
         }
 
         [Fact]

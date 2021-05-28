@@ -13,5 +13,10 @@ namespace OrderProcessorApplication.Services
         {
             Console.WriteLine("GeneratePackingSlip");
         }
+
+        public void GenerateFirstAidSlip()
+        {
+            Console.WriteLine("GenerateFirstAidSlip");
+        }
     }
 }
